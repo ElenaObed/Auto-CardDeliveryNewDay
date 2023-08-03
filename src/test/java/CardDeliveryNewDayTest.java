@@ -39,12 +39,11 @@ public class CardDeliveryNewDayTest {
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(secondDate);
         $(byText("Запланировать")).click();
-        $(byText("Необходимо подтверждение")).shouldBe(visible, Duration.ofSeconds(15));
-        $("[data-test-id=replan-notification] .notification__content"). shouldHave(exactText("У вас уже запланирована встреча на другую дату. Перепланировать?")). shouldBe(visible, Duration.ofSeconds(15));;
-        $(".button__text").shouldHave(exactText("Перепланировать")).click();
-        $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(25));
-        $("[data-test-id=success-notification] .notification__content").shouldHave(exactText("Встреча успешно забронирована на " + secondDate)).shouldBe(visible, Duration.ofSeconds(15));
-
+        $(byText("Необходимо подтверждение")).shouldBe(Condition.visible);
+        $(byText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(Condition.visible);
+        $$(".button__text").find(exactText("Перепланировать")).click();
+        $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(15));
+        $(".notification__content").shouldHave(Condition.exactText("Встреча успешно запланирована на " + secondDate)).shouldBe(Condition.visible, Duration.ofSeconds(15));
     }
 }
 
