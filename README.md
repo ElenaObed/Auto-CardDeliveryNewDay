@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/gg74yvydnj0avwj5?svg=true)](https://ci.appveyor.com/project/ElenaObed/auto-carddeliverynewday)
